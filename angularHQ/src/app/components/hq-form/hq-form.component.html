@@ -1,0 +1,50 @@
+<h1 mat-dialog-title class="title-form"> New HQ </h1>
+
+<form class="example-form" [formGroup]="hqForm">
+
+  <input type="hidden" formControlName="id" name="id">
+
+  <div class="div-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Name" formControlName="name" name="name">
+    </mat-form-field>
+  </div>
+
+  <div class="div-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Edition</mat-label>
+      <input matInput placeholder="Edition" formControlName="edition" name="edition">
+    </mat-form-field>
+  </div>
+
+  <div class="div-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Author</mat-label>
+      <input matInput placeholder="Author" formControlName="author" name="author">
+    </mat-form-field>
+  </div>
+
+  <div class="div-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Publishing Company</mat-label>
+      <input matInput placeholder="Publishing Company" formControlName="publishingCompany" name="publishingCompany">
+    </mat-form-field>
+  </div>
+
+  <div fxLayout="roe wrap">
+    <div fxFlex="50" fxFill fxLayoutAlign="start center">
+      <mat-form-field>
+        <mat-label>Date HQ Publishing</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-button (click)="cancel()">Exit</button>
+    <button mat-raised-button [disabled]="!hqForm.valid" (click)="save()"> Save </button>
+  </div>
+</form>
